@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario-pratica10</title>
+    <script src="assets\js\script.js" defer></script>
+</head>
+<body>
+    <h1 id="titulo">Formulário de cadastro</h1>
+    <section id="formulario">
+        <form id="cadastroForm">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" required>
+            <br>
+            <label for="sexo">Sexo:</label>
+            <select class="form-control" name="sexo" id="sexo">
+                <option>masculino</option>
+                <option>feminino</option>
+                <option>outro</option>
+            </select>
+            <br>
+            <label for="interesses">Interesses</label>
+            <input type="checkbox" name="interesses" id="esportes" value="esportes">Esportes
+            <input type="checkbox" name="interesses" id="tecnologia" value="tecnologia">Tecnologia
+            <input type="checkbox" name="interesses" id="viagem" value="viagem">Viagem
+            <br>
+            <label for="comentarios">Comentários:</label>
+            <br>
+            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+
+    <div id="dadosCadastro" style="display: none;">
+        <h2>Dados do Cadastro:</h2>
+        <table id="tabelaDados">
+            <!-- Os dados do formulário serão inseridos aqui dinamicamente -->
+        </table>
+        <br>
+        <input type="button" id="novoCadastro" value="Novo Cadastro">
+    </div>
+</body>
+</html>
