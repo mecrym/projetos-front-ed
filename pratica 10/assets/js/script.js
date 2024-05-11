@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var email = document.getElementById('email').value;
         var senha = document.getElementById('senha').value;
         var sexo = document.getElementById('sexo').value;
-        var comentarios = document.getElementById('comentarios').value;
+        var comentarios = document.getElementById('texto').value;
 
         if (nome && email && senha && sexo && comentarios) {
             // Obter valores dos campos

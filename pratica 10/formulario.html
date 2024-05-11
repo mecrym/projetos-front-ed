@@ -5,42 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formulario-pratica10</title>
     <script src="assets\js\script.js" defer></script>
+    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1 id="titulo">Formulário de cadastro</h1>
     <section id="formulario">
         <form id="cadastroForm">
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
+            <div class="nome">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required>
+                <br>
+            </div>
+            
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <br>
+            </div>
+            
+            <div class="senha">
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" required>
+                <br>
+            </div>
+            
+            <div class="sexo">
+                <label for="sexo">Sexo:</label>
+                <select class="form-control" name="sexo" id="sexo">
+                    <option>masculino</option>
+                    <option>feminino</option>
+                    <option>outro</option>
+                </select>
+                <br>
+            </div>
+            
+            <div id="interesses">
+                <label for="interesses">Interesses: </label>
+                <div class="options">
+                    <input type="checkbox" name="interesses" id="esportes" value="esportes">Esportes
+                    <input type="checkbox" name="interesses" id="tecnologia" value="tecnologia">Tecnologia
+                    <input type="checkbox" name="interesses" id="viagem" value="viagem">Viagem
+                </div>
+                <br>
+            </div>
+            
+            <div class="comentarios">
+                <label for="comentarios" class="comentariosTitulo">Comentários:</label>
             <br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
+            <textarea name="comentarios" id="texto" cols="30" rows="10"></textarea>
             <br>
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" required>
-            <br>
-            <label for="sexo">Sexo:</label>
-            <select class="form-control" name="sexo" id="sexo">
-                <option>masculino</option>
-                <option>feminino</option>
-                <option>outro</option>
-            </select>
-            <br>
-            <label for="interesses">Interesses</label>
-            <input type="checkbox" name="interesses" id="esportes" value="esportes">Esportes
-            <input type="checkbox" name="interesses" id="tecnologia" value="tecnologia">Tecnologia
-            <input type="checkbox" name="interesses" id="viagem" value="viagem">Viagem
-            <br>
-            <label for="comentarios">Comentários:</label>
-            <br>
-            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
-            <br>
-            <input type="submit" value="Enviar">
+            </div>
+            
+
+                <input class="enviar" type="submit" value="Enviar">
+
+            
         </form>
     </section>
 
     <div id="dadosCadastro" style="display: none;">
-        <h2>Dados do Cadastro:</h2>
+        <h2 class="dados">Dados do Cadastro:</h2>
         <table id="tabelaDados">
             <!-- Os dados do formulário serão inseridos aqui dinamicamente -->
         </table>
