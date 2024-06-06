@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+        // Função para carregar dados JSON de um arquivo
+        async function loadJSON(filename) {
+            let response = await fetch(filename);
+            let data = await response.json();
+            return data;
+        }
+
+        // Função para contar tarefas por dia e atualizar o gráfico
+        async function updateChart() {
+            // Carregar dados JSON do arquivo
+            var jsonData = await loadJSON('tasks_data.json');
+
+            // Contagem de tarefas por dia
+            var taskCountByDay = {};
+            for (var day in jsonData) {
+                taskCountByDay[day] = jsonData[day].length;
+            }
+
+            // Separar os dias e o número de tarefas em arrays
+            var days = Object.keys(taskCountByDay);
+            var taskCounts = Object.values(taskCountByDay);
+
+            // Atualizar o gráfico
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: days,
+                    datasets: [{
+                        label: 'Número de Tarefas por Dia',
+                        data: taskCounts,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
+                        borderColor: 'rgba(255, 99, 132, 1)', // Cor da borda das barras
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chamar a função para atualizar o gráfico ao carregar a página
+        updateChart();
+    </script>
+</body>
+</html>
